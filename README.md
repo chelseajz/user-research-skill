@@ -77,6 +77,21 @@ The most important gate is Gate 2. Candidate findings are explicitly classified 
 
 The default bias is conservative: do not promote by default.
 
+## Role Separation
+
+To avoid the weakness of "writing and reviewing with the same mindset," this skill recommends separating production from review.
+
+Minimum recommended setup:
+- `producer`: handles analysis and report drafting
+- `reviewer`: independently challenges the report before it is treated as final
+
+If more separation is useful, use:
+- `analyst`: extracts patterns, evidence, and candidate findings
+- `writer`: turns those materials into a readable report
+- `reviewer`: checks claim strength, denominator discipline, caveats, and recommendation overreach
+
+The most important separation is not necessarily analyst vs writer. It is producer vs reviewer.
+
 ## Best Use Cases
 
 This repository is a strong fit for:
@@ -269,3 +284,18 @@ This repository is actively evolving through real report review and revision wor
 - `drop as noise`
 
 默认原则是从严处理，不默认升级为正式发现。
+
+## 角色分工建议
+
+为了避免“自己写、自己评”时辩证性不足，这个技能建议至少把产出和审查分开。
+
+最低推荐配置：
+- `producer`：负责分析与成稿
+- `reviewer`：独立审查，在报告被视为最终版之前专门挑错
+
+如果希望分得更细，可以用：
+- `analyst`：负责模式提取、证据整理、候选发现输出
+- `writer`：负责把材料组织成完整报告
+- `reviewer`：负责检查 claim 强度、分母纪律、caveat 和建议是否越过证据
+
+最重要的分工通常不是 analyst 和 writer 分开，而是 producer 和 reviewer 分开。
