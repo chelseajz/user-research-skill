@@ -132,6 +132,71 @@ Choose the lightest path that fits the request:
    - the table should contain execution priority, concrete action, and why now
    - do not restate the same action twice in different wording
 
+## Human checkpoints
+
+Default posture:
+- Automate as much of the mechanical work as possible.
+- Keep human involvement to a few high-leverage judgment points.
+- Do not skip the checkpoints that most often prevent downstream report rework.
+
+Everything below can usually be automated unless a project is unusually sensitive:
+- data cleaning
+- descriptive statistics
+- chart drafting
+- initial coding application
+- pattern extraction
+- quote selection
+- casebook assembly
+- confidence draft labels
+- red-team issue collection
+- formatting and packaging
+
+Use the following five checkpoints as the default collaboration model:
+
+1. Opening confirmation
+   Trigger: at the start, only if the context is materially unclear
+   Human decision:
+   - confirm the business decision
+   - confirm the audience
+   - confirm the data input is complete enough to proceed
+   Rule: if these are already clear from context, skip this checkpoint
+
+2. Gate 1: codebook review
+   Trigger: after the initial codebook is drafted
+   Human decision:
+   - review the core 10-15 codes
+   - merge, split, rename, or add codes
+   Purpose: prevent downstream synthesis from being built on the wrong buckets
+
+3. Gate 2: finding classification
+   Trigger: after candidate findings are drafted, before report assembly
+   Human decision: classify each candidate finding into one of five outcomes
+   - `promote`: strong enough to become a formal finding and drive recommendations
+   - `directional`: pattern exists but evidence is not strong enough for a main finding
+   - `degrade`: claim is directionally useful but confidence must be lowered
+   - `add caveat`: claim only holds with explicit scope limits, segment limits, or conditions
+   - `drop as noise`: evidence is too weak, too conflicted, or too dependent on unresolved exceptions
+   Default rule: be conservative; do not default to `promote`
+   Escalation rule: if denominator stability, counter-signal handling, or explanation quality is weak, prefer `directional`, `degrade`, or `add caveat` over `promote`
+
+4. Gate 3: report quality review
+   Trigger: after the full report draft exists
+   Human decision:
+   - resolve the highest-priority red-team issues
+   - confirm the interpretation does not overreach
+   - confirm ethics, compliance, and bias issues are handled appropriately
+   - confirm recommendations do not exceed the strength of the evidence
+   Purpose: this is the research-quality gate, not the business-release gate
+
+5. Final sign-off
+   Trigger: after report-quality issues are resolved
+   Human decision:
+   - decide whether the report is ready to circulate
+   - optionally decide audience order, tone adjustments, and whether an upward sync is needed
+   Purpose: this is a release decision, not a second research review
+
+If a workflow skips Gate 2, Gate 3, or final sign-off, lower confidence in the top-layer output and treat the result as a draft rather than a fully decision-ready report.
+
 ## Interaction rules
 
 - Do not force a questionnaire-style intake if the needed facts are already in the prompt or files.
