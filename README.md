@@ -44,6 +44,39 @@ It also includes guardrails for common report quality failures such as:
 - treating prototype feedback as product validation
 - leaving drafting residue in a "final" report
 
+## Automation Model
+
+This skill is intentionally designed for high automation with a small number of required human judgment gates.
+
+The default model is:
+- automate the mechanical work
+- pause only at the decisions most likely to prevent downstream rework
+
+Most operational steps can be automated:
+- cleaning and structuring data
+- first-pass coding
+- pattern extraction
+- quote and case selection
+- draft confidence labels
+- red-team issue collection
+- report formatting and packaging
+
+Human review is concentrated at five checkpoints:
+- Opening confirmation: only if decision, audience, or data scope is unclear
+- Gate 1: codebook review
+- Gate 2: finding classification
+- Gate 3: report quality review
+- Final sign-off
+
+The most important gate is Gate 2. Candidate findings are explicitly classified as:
+- `promote`
+- `directional`
+- `degrade`
+- `add caveat`
+- `drop as noise`
+
+The default bias is conservative: do not promote by default.
+
 ## Best Use Cases
 
 This repository is a strong fit for:
@@ -203,3 +236,36 @@ This repository is actively evolving through real report review and revision wor
 - 关键证明要回写到正文，不只藏在嵌入对象里
 - 对 off-denominator 的补充例子做明确标注
 - 摘要、标题、正文里的 caveat 要同步
+
+## 自动化协作模式
+
+这个技能的设计目标不是“让人全程盯着”，而是“尽量自动跑完，只在高杠杆判断点停下来”。
+
+默认协作方式是：
+- 机械性工作尽量自动化
+- 只在最容易引发后续返工的地方保留人工闸门
+
+大部分执行步骤都可以自动完成，例如：
+- 数据清洗与结构化
+- 初始编码应用
+- 模式提取
+- 原声与案例选择
+- 置信度草标
+- 红队问题收集
+- 报告格式整理与打包
+
+人工主要集中在 5 个检查点：
+- 开头确认：仅当业务决策、受众或数据范围不清时触发
+- Gate 1：编码簿审阅
+- Gate 2：发现分级
+- Gate 3：报告质量终审
+- Final sign-off：最终签发
+
+其中最关键的是 Gate 2。候选发现会被明确分成五类：
+- `promote`
+- `directional`
+- `degrade`
+- `add caveat`
+- `drop as noise`
+
+默认原则是从严处理，不默认升级为正式发现。
