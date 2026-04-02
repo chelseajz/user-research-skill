@@ -77,6 +77,13 @@ The most important gate is Gate 2. Candidate findings are explicitly classified 
 
 The default bias is conservative: do not promote by default.
 
+The default implementation is:
+- keep analysis and drafting in the main agent
+- use an independent reviewer subagent at Gate 3
+- give that reviewer the final report, the review rubric, and only the source materials needed to verify claims
+- do not give the reviewer the full drafting history by default
+- return findings to the main agent for revision
+
 ## Role Separation
 
 To avoid the weakness of "writing and reviewing with the same mindset," this skill recommends separating production from review.
@@ -91,6 +98,12 @@ If more separation is useful, use:
 - `reviewer`: checks claim strength, denominator discipline, caveats, and recommendation overreach
 
 The most important separation is not necessarily analyst vs writer. It is producer vs reviewer.
+
+In practice, the preferred execution pattern is:
+- main agent = `producer`
+- Gate 3 subagent = `reviewer`
+
+This keeps full context where it matters, while making the audit step more independent.
 
 ## Best Use Cases
 
@@ -285,6 +298,13 @@ This repository is actively evolving through real report review and revision wor
 
 默认原则是从严处理，不默认升级为正式发现。
 
+默认实现方式是：
+- 分析与成稿由主 agent 完成
+- Gate 3 使用独立 reviewer subagent
+- reviewer 默认只拿最终报告、review rubric 和必要证据材料
+- 不默认给 reviewer 完整起草历史
+- 审查结果回到主 agent 统一修订
+
 ## 角色分工建议
 
 为了避免“自己写、自己评”时辩证性不足，这个技能建议至少把产出和审查分开。
@@ -299,3 +319,9 @@ This repository is actively evolving through real report review and revision wor
 - `reviewer`：负责检查 claim 强度、分母纪律、caveat 和建议是否越过证据
 
 最重要的分工通常不是 analyst 和 writer 分开，而是 producer 和 reviewer 分开。
+
+落地时更推荐的执行方式是：
+- 主 agent = `producer`
+- Gate 3 subagent = `reviewer`
+
+这样既能保留完整上下文，又能让审查更接近独立外部视角。

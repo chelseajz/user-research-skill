@@ -181,6 +181,12 @@ Use the following five checkpoints as the default collaboration model:
 
 4. Gate 3: report quality review
    Trigger: after the full report draft exists
+   Default execution model:
+   - keep analysis and writing in the main agent so context stays intact
+   - use an independent reviewer subagent for Gate 3 whenever the environment supports it
+   - send the reviewer subagent the final report, the review rubric, and only the source artifacts needed to verify claims
+   - do not send the reviewer the full drafting history unless it is necessary for adjudication
+   - return review findings to the main agent for revision and final judgment
    Human decision:
    - resolve the highest-priority red-team issues
    - confirm the interpretation does not overreach
